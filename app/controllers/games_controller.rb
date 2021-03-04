@@ -7,7 +7,8 @@ class GamesController < ApplicationController
   end
 
   def create
-    Game.create(creator: current_user)
+    ### handle create false
+    Game.create(creator_id: current_user.id)
 
     json_response :ok
   end
