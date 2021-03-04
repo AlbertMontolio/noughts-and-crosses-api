@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     password = params[:password]
     user = User.find_by_email(email)
 
+    puts "### user"
+    p user
     if user
       auth_token = AuthenticateUser.new(user.email, password).call
     else
