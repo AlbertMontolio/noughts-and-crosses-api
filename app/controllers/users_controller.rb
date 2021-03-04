@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       user = User.create(
         email: email,
         password: password,
-        password_confirmation: password # necessary for bcrypt, not implemented in frontend
+        password_confirmation: password # necessary for bcrypt, this field not implemented in frontend
       )
 
       AuthenticateUser.new(user.email, password).call
