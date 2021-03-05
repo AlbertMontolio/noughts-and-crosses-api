@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   post 'sign-in-with-email', to: 'users#sign_in_with_email'
 
   resources :users, only: [] do
-    resources :games, only: [:index]
+    resources :games, only: [:index, :create]
   end
-
-  resources :games, only: [:create]
 end
