@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :games, only: [:index, :create]
   end
 
-  resources :games, only: [] do
+  resources :games, only: [:show] do
     resources :moves, only: [:create]
   end
 end

@@ -22,4 +22,10 @@ class GamesController < ApplicationController
 
     json_response :ok
   end
+
+  def show
+    game = Game.find(params[:id])
+
+    json_response GamePresenter.new(game).as_json
+  end
 end

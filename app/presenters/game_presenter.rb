@@ -7,6 +7,7 @@ class GamePresenter
     return unless user
 
     {
+      id: user.id,
       twoLetters: user.email[0..1]
     }
   end
