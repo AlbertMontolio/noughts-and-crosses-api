@@ -3,7 +3,17 @@ class GamesController < ApplicationController
     ### todo
     games = Game.all
 
-    json_response games
+    created_games = current_user.created_games
+    joined_games = current_user.joined_games
+    rest_games = Game.all - created_games - joined_games
+
+    response = {
+      createdGgames: created_games,
+      joinedGames: joined_games,
+      restGames: rest_games
+    }
+
+    json_response 
   end
 
   def create
