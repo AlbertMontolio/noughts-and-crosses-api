@@ -20,7 +20,7 @@ class GamePresenter
       createdAt: @game.created_at,
       creator: user_info(@game.creator),
       joiner: user_info(@game.joiner),
-      moves: @game.moves
+      moves: MovesPresenter.new(@game.moves).as_json
     }
   end
 end
