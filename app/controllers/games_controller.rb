@@ -28,4 +28,12 @@ class GamesController < ApplicationController
 
     json_response GamePresenter.new(game).as_json
   end
+
+  def join
+    ### refactor with before_action
+    game = Game.find(params[:id])
+    game.update(joiner_id: current_user.id)
+
+    json_response :ok
+  end
 end
