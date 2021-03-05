@@ -13,7 +13,7 @@ class GamesController < ApplicationController
       restGames: rest_games
     }
 
-    json_response 
+    json_response response
   end
 
   def create
