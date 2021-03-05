@@ -3,14 +3,20 @@ class GamePresenter
     @game = game
   end
 
+  def user_info(user)
+    {
+      twoLetters: user.email[0..1]
+    }
+  end
+
   def as_json
     # create method to camelize keys
 
     {
       id: @game.id,
       createdAt: @game.created_at,
-      creator: @game.creator,
-      joiner: @game.joiner
+      creator: user_info(@game.creator),
+      joiner: user_info(@game.joiner)
     }
   end
 end
