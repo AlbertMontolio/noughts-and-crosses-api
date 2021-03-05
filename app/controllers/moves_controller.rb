@@ -9,6 +9,6 @@ class MovesController < ApplicationController
     move.user = current_user
     move.save
 
-    json_response move
+    json_response :ok
   end
 end
