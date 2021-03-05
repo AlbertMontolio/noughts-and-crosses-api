@@ -4,6 +4,8 @@ class GamePresenter
   end
 
   def user_info(user)
+    return unless user
+
     {
       twoLetters: user.email[0..1]
     }
