@@ -7,10 +7,10 @@ class GamePresenter
     # create method to camelize keys
 
     {
-      id: game.id,
-      createdAt: game.created_at,
-      creator: game.creator,
-      joiner: game.joiner
+      id: @game.id,
+      createdAt: @game.created_at,
+      creator: @game.creator,
+      joiner: @game.joiner
     }
   end
 end
