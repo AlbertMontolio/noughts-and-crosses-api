@@ -8,9 +8,9 @@ class GamesController < ApplicationController
     rest_games = Game.all - created_games - joined_games
 
     response = {
-      createdGames: created_games,
-      joinedGames: joined_games,
-      restGames: rest_games
+      createdGames: GamesPresenter.new(created_games).as_json,
+      joinedGames: GamesPresenter.new(joined_games).as_json,
+      restGames: GamesPresenter.new(rest_games).as_json
     }
 
     json_response response
