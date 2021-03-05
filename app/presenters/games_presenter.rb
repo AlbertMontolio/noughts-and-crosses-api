@@ -5,7 +5,7 @@ class GamesPresenter
 
   def as_json
     games.map do |game|
-      GamePresenter.new(game)
+      GamePresenter.new(game).as_json
     end
   end
 end
