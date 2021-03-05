@@ -19,7 +19,8 @@ class GamePresenter
       id: @game.id,
       createdAt: @game.created_at,
       creator: user_info(@game.creator),
-      joiner: user_info(@game.joiner)
+      joiner: user_info(@game.joiner),
+      moves: @game.moves
     }
   end
 end
