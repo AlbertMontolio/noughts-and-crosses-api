@@ -8,7 +8,7 @@ class GamesController < ApplicationController
     rest_games = Game.all - created_games - joined_games
 
     response = {
-      createdGgames: created_games,
+      createdGames: created_games,
       joinedGames: joined_games,
       restGames: rest_games
     }
