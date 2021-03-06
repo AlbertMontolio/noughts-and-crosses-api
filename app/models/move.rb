@@ -15,7 +15,7 @@ class Move < ApplicationRecord
     player_type = self.type
     game = self.game
     
-    moves = game.moves
+    moves = game.moves.joins(:user).where(users: { id: self.user_id })
     moves.select { |move| move.type === player_type }
     x_groups = moves.select(:pos_x).group(:pos_x).count
     y_groups = moves.select(:pos_y).group(:pos_y).count

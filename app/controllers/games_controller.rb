@@ -18,9 +18,10 @@ class GamesController < ApplicationController
 
   def create
     ### handle create false
-    Game.create(creator_id: current_user.id)
+    game = Game.create(creator_id: current_user.id)
 
-    json_response :ok
+    response = {gameId: game.id}
+    json_response response
   end
 
   def show
