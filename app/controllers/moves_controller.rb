@@ -10,18 +10,19 @@ class MovesController < ApplicationController
     move.save
 
     ### check if winner
-    json_response :ok
+    json_response {
+      is_winner: is_winner(move)
+    }
   end
 
   private
 
   def is_winner(move)
-    move = Move.last
-    type = move.type
+    player_type = move.type
     game = move.game
     
     moves = game.moves
-    moves.select { |move| move.type === type }
+    moves.select { |move| move.type === player_type }
     x_groups = moves.select(:pos_x).group(:pos_x).count
     y_groups = moves.select(:pos_y).group(:pos_y).count
 
