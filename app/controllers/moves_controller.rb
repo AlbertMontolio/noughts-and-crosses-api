@@ -10,12 +10,17 @@ class MovesController < ApplicationController
     move.save
 
     ### check if winner
-    # check(move)
+    if is_winner(move)
+      response: { is_winner: true }
+      json_response response
+    else
+      response: { is_winner: false }
+      json_response response
+    end
 
-    json_response :ok
   end
 
-  def check(move)
+  def is_winner(move)
     move = Move.last
     game = move.game
 
