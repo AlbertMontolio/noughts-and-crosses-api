@@ -10,9 +10,8 @@ class MovesController < ApplicationController
     move.save
 
     ### check if winner
-    json_response {
-      is_winner: is_winner(move)
-    }
+    response = { isWinner: is_winner(move) }
+    json_response response
   end
 
   private
@@ -26,6 +25,6 @@ class MovesController < ApplicationController
     x_groups = moves.select(:pos_x).group(:pos_x).count
     y_groups = moves.select(:pos_y).group(:pos_y).count
 
-    x_groups.values.any?(3) || y_groups.values.any?(3) || x_groups.values.all?(1)
+    x_groups.values.any?(3) || y_groups.values.any?(3) || (x_groups.values.all?(1) && x_groups.keys.length == 3)
   end
 end
