@@ -10,7 +10,7 @@ class MovesController < ApplicationController
     move.save
 
     ### check if winner
-    json_response { isWinner: is_winner(move) }
+    json_response :ok
   end
 
   private
