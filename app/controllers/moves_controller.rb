@@ -11,10 +11,10 @@ class MovesController < ApplicationController
 
     ### check if winner
     if is_winner(move)
-      response: { is_winner: true }
+      response = { is_winner: true }
       json_response response
     else
-      response: { is_winner: false }
+      response = { is_winner: false }
       json_response response
     end
 
