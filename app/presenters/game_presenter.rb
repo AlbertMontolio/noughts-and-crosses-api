@@ -8,7 +8,8 @@ class GamePresenter
 
     {
       id: user.id,
-      twoLetters: user.email[0..1]
+      twoLetters: user.email[0..1],
+      email: user.email
     }
   end
 
