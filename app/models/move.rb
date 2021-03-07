@@ -24,6 +24,11 @@ class Move < ApplicationRecord
   end
 
   def slope_wins(moves)
+    ### refactor, just check if move is corner
+    ### then check if center is clicked
+    ### then check opposite of corner
+    ### to be done
+
     # select the ones in a slope
     moves = moves.select { |move| move.pos_x.abs == move.pos_y.abs }
     center_clicked = moves.any? { |move| move.pos_x == 0 && move.pos_y == 0 }
@@ -36,6 +41,7 @@ class Move < ApplicationRecord
 
     return false unless non_center_moves.any?
 
+    # check corner opposites
     opposites = non_center_moves.map do |non_center_move|
       pos_x = non_center_move.pos_x
       pos_y = non_center_move.pos_y
